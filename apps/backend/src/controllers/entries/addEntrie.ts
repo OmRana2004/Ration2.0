@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { prisma } from "@repo/db/client";
+import { prisma } from "../../db/index";
 
 export const addEntrie = async (
     req: Request,

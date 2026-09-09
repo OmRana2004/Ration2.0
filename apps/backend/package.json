@@ -13,15 +13,18 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "cors": "^2.8.6",
     "dotenv": "^16.0.3",
     "express": "^5.2.1",
+    "pg": "^8.23.0",
     "typescript": "^7.0.2"
   },
   "devDependencies": {
-    "@repo/db": "*",
-    "@repo/typescript-config": "*"
+    "@repo/typescript-config": "*",
+    "prisma": "^7.10.0"
   }
 }

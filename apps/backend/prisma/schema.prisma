@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Entry {
+  id        String   @id @default(cuid())
+  name      String
+  unit      Int
+  cardType  CardType
+  createdAt DateTime @default(now())
+}
+
+enum CardType {
+  SFY
+  AAY
+  PHH
+}
