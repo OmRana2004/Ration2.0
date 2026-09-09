@@ -7,21 +7,16 @@ import { deleteEntries } from "../controllers/entries/deleteEntries";
 
 const router = Router();
 
-router.post(
-  "/entrie",
-  addEntrie
-);
-router.get(
-  "/entries",
-  getEntries
-);
-router.put(
-  "/entrie/id",
-  updateEntrie
-);
-router.delete(
-  "/entries/id",
-  deleteEntries
-);
+// GET /api/v1/entries
+router.get("/", getEntries);
+
+// POST /api/v1/entries
+router.post("/", addEntrie);
+
+// PUT /api/v1/entries/:id
+router.put("/:id", updateEntrie);
+
+// DELETE /api/v1/entries/:id
+router.delete("/:id", deleteEntries);
 
 export default router;
