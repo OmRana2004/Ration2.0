@@ -19,4 +19,7 @@ router.put("/:id", updateEntrie);
 // DELETE /api/v1/entries/:id
 router.delete("/:id", deleteEntries);
 
+// DELETE ALL ENTRIES
+router.delete("/", deleteEntries);
+
 export default router;

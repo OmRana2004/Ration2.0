@@ -388,7 +388,7 @@ export default function Add() {
                   onClick={() =>
                     setShowAll(!showAll)
                   }
-                  className="w-full mt-3 text-blue-500 text-sm font-medium"
+                  className="w-full mt-3 text-blue-500 text-sm font-medium cursor-pointer"
                 >
                   {showAll
                     ? "Show Less ▲"

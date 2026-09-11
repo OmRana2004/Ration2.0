@@ -1,36 +1,42 @@
-import { Request, Response } from "express"
+import { Request, Response } from "express";
 import { prisma } from "../../db/index";
 
 export const deleteEntries = async (
-    req: Request,
-    res: Response
+  req: Request,
+  res: Response
 ) => {
-    try {
-        const id = req.params.id as string;
+  try {
+    const id = req.params.id as string | undefined;
 
-        if (!id) {
-            return res.status(400).json({
-                success: false,
-                msg: "ENTRY ID IS REQUIRED"
-            });
-        }
+    // DELETE ONE ENTRY
+    if (id) {
+      await prisma.entry.delete({
+        where: {
+          id,
+        },
+      });
 
-        await prisma.entry.delete({
-            where: {
-                id,
-            },
-        });
-
-        return res.status(200).json({
-            success: true,
-            msg: "Entry deleted successfully",
-        });
-    } catch (error) {
-        console.log("DELETE ENTRY ERROR:",error);
-
-        return res.status(500).json({
-            success: false,
-            msg: "Internal Server Error",
-        });
+      return res.status(200).json({
+        success: true,
+        msg: "Entry deleted successfully",
+      });
     }
+
+    // DELETE ALL ENTRIES
+    const result = await prisma.entry.deleteMany();
+
+    return res.status(200).json({
+      success: true,
+      msg: "ALL ENTRIES DELETED SUCCESSFULLY",
+      deletedCount: result.count,
+    });
+
+  } catch (error) {
+    console.log("DELETE ENTRY ERROR:", error);
+
+    return res.status(500).json({
+      success: false,
+      msg: "Internal Server Error",
+    });
+  }
 };

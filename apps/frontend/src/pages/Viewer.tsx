@@ -205,7 +205,7 @@ export default function Viewer() {
 
         <div className="flex items-center gap-3">
 
-         <Link to="/add">
+         <Link to="/admin">
   <div className="bg-green-500 p-3 rounded-2xl text-white shadow cursor-pointer transition active:scale-95 hover:scale-105">
     <Box size={20} />
   </div>

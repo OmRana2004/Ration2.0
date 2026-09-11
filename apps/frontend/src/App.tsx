@@ -1,15 +1,14 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Viewer from "./pages/Viewer";
-import Add from "./pages/Add";
+import Add from "./pages/Admin";
 
 function App() {
   return (
-    <BrowserRouter>
+    
       <Routes>
         <Route path="/" element={<Viewer />} />
-        <Route path="/add" element={<Add />} />
+        <Route path="/admin" element={<Add />} />
       </Routes>
-    </BrowserRouter>
   );
 }
 
